@@ -2,7 +2,7 @@
   - 127.0.0.1
   become_method: doas
   tasks:
-    - name: hostname files
+    - name: install hostname files
       copy: src=files/hostname.{{item}} dest=/etc/hostname.{{item}} owner=root group=wheel mode=0640
       with_items:
         - lo1
@@ -11,3 +11,9 @@
         - em2
         - trunk0
         - ppp0
+    - name: install ppp configuration
+      copy: src=files/ppp/{{item}} dest=/etc/ppp/{{item}} owner=root group=wheel mode=0644
+      with_items:
+        - connect.three.co.uk
+        - disconnect
+        - peers/three.co.uk
