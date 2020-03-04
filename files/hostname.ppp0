@@ -1,2 +1,2 @@
 rdomain 1
-!/usr/sbin/pppd call three.co.uk
+!route -T1 exec /usr/sbin/pppd call three.co.uk
