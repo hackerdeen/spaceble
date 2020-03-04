@@ -1,0 +1,4 @@
+rdomain 1
+trunkport em1 trunkport em2 trunkproto lacp up
+inet 172.23.152.1 255.255.255.0 172.23.152.255
+up

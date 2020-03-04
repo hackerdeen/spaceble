@@ -1,0 +1,13 @@
+cuaU2
+connect "chat -v -f /etc/ppp/connect.three.co.uk"
+disconnect "chat -v -f /etc/ppp/disconnect"
+nocrtscts
+xonxoff
+noipdefault
+ipcp-restart 10
+ipcp-accept-local
+:0.0.0.2
+noauth
+novj
+defaultroute
+persist
