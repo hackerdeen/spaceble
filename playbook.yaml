@@ -4,12 +4,8 @@
   tasks:
     - name: install packages
       openbsd_pkg:
-        name: "{{ item }}"
+        name: ['git', 'ansible', 'tor']
         state: present
-      with_items:
-        - git
-        - ansible
-        - tor
     - name: update all packages
       openbsd_pkg:
         name: "*"
