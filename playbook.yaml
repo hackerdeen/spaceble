@@ -20,3 +20,7 @@
         - connect.three.co.uk
         - disconnect
         - peers/three.co.uk
+    - name: install sysctl.conf
+      copy: src=files/sysctl.conf dest=/etc/sysctl.conf owner=root group=wheel mode=0640
+    - name: install pf.conf
+      copy: src=files/pf.conf dest=/etc/pf.conf owner=root group=wheel mode=0640
