@@ -2,6 +2,28 @@
   - 127.0.0.1
   become_method: doas
   tasks:
+    - name: install packages
+      openbsd_pkg:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - git
+        - ansible
+        - tor
+    - name: update all packages
+      openbsd_pkg:
+        name: "*"
+        state: latest
+    - name: create sd card mountpoint
+      file:
+        path: /sdcard
+        state: directory
+    - name: mount sd card
+      lineinfile:
+        path: /etc/fstab
+        line: "sd1i /sdcard msdos rw,nodev,nosuid 1 2"
+        insertafter: EOF
+        state: present
     - name: install hostname files
       copy: src=files/hostname.{{item}} dest=/etc/hostname.{{item}} owner=root group=wheel mode=0640
       with_items:
@@ -49,4 +71,10 @@
     - name: enable inetd
       service:
         name: inetd
+        enabled: yes
+    - name: install torrc
+      copy: src=files/torrc dest=/etc/tor/torrc owner=_tor group=wheel mode=0444
+    - name: enable tor
+      service:
+        name: tor
         enabled: yes

@@ -1,0 +1,6 @@
+Log notice syslog
+RunAsDaemon 1
+DataDirectory /var/tor
+HiddenServiceDir /var/tor/remoteaccess/
+HiddenServicePort 22 127.0.0.1:22
+User _tor
