@@ -44,12 +44,9 @@
       service:
         name: ntpd
         enabled: yes
-    - name: enable (day)time servers
-      lineinfile:
-        path: /etc/inetd.conf
-        line: "{{ item }}"
-        insertafter: EOF
-        state: present
-      with_items:
-        - "daytime stream tcp nowait nobody internal"
-        - "time stream tcp nowait nobody internal"
+    - name: install inetd.conf
+      copy: src=files/inetd.conf dest=/etc/inetd.conf owner=root group=wheel mode=0644
+    - name: enable inetd
+      service:
+        name: inetd
+        enabled: yes
