@@ -27,7 +27,7 @@
     - name: install resolv.conf
       copy: src=files/resolv.conf dest=/etc/resolv.conf owner=root group=wheel mode=0644
     - name: install dhcpd.conf
-      copy: src=files/dhcpd.conf dest=/etc/dhcpd.conf owner=root group=whell mode=0644
+      copy: src=files/dhcpd.conf dest=/etc/dhcpd.conf owner=root group=wheel mode=0644
     - name: enable dhcp server
       service:
         name: dhcpd
