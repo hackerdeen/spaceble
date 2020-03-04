@@ -11,6 +11,10 @@
         - em2
         - trunk0
         - ppp0
+    - name: create ppp peers directory
+      file:
+        path: /etc/ppp/peers
+        state: directory
     - name: install ppp configuration
       copy: src=files/ppp/{{item}} dest=/etc/ppp/{{item}} owner=root group=wheel mode=0644
       with_items:
