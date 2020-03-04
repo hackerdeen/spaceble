@@ -32,3 +32,15 @@
       service:
         name: dhcpd
         enabled: yes
+    - name: attach nmea ld to gps dongle
+      lineinfile:
+        path: /etc/ttys
+        line: "cuaU0   \"/sbin/ldattach nmea\"   unknown on softcar"
+        insertafter: EOF
+        state: present
+    - name: install ntpd.conf
+      copy: src=files/ntpd.conf dest=/etc/ntpd.conf owner=root group=wheel mode=0644
+    - name: enable ntp server
+      service:
+        name: ntpd
+        enabled: yes

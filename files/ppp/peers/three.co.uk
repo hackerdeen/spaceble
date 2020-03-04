@@ -1,4 +1,4 @@
-cuaU2
+cuaU3
 connect "chat -v -f /etc/ppp/connect.three.co.uk"
 disconnect "chat -v -f /etc/ppp/disconnect"
 nocrtscts
