@@ -5,7 +5,6 @@
     - name: install hostname files
       copy: src=files/hostname.{{item}} dest=/etc/hostname.{{item}} owner=root group=wheel mode=0640
       with_items:
-        - lo1
         - em0
         - em1
         - em2
